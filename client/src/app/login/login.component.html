@@ -1,11 +1,17 @@
-<h1>Halaman Login</h1>
-
-<form>
-    <label>Username</label>
-    <input type="text" name="username" [(ngModel)]="user.username">
+<div class="uk-container uk-position-center">
+    <h1 class="uk-button-text">Login</h1>
     <br>
-    <label>Password</label>
-    <input type="password" name="password" [(ngModel)]="user.password">
-    <br>
-    <button (click)="prosesLogin()">Masuk</button>
-</form>
+    <form>
+        <div class="uk-margin">
+            <div class="uk-inline uk-form-control">
+                <input class="uk-input uk-form-success" type="text" name="username" [(ngModel)]="user.username" placeholder="Email">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <div class="uk-inline uk-form-control">
+                <input class="uk-input uk-form-success" type="text" name="password" [(ngModel)]="user.password" placeholder="Password">
+            </div>
+        </div>
+        <button (click)="prosesLogin()" class="uk-button uk-button-default uk-button-secondary uk-width-1-1">Masuk</button>
+    </form>
+</div>
