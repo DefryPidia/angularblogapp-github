@@ -15,18 +15,23 @@ app.get('/app/github/login', (req, res) => {
 app.post('/app/github/login', (req, res) => {
     mongoose.connect(url, function(err){
         if(err) throw err;
-        if(user.length === 1){
-            return res.status(200).json({
-                status: 'berhasil',
-                data: user
-            })
-        } else {
-            return res.status(200).json({
-                status: 'gagal',
-                message: 'login gagal'
-            })
-        }
-        console.log('koneksi berhasil, username nya', req.body.username, 'password nya', req.body.password);
+        User.find({
+            username : req.body.username, password : req.body.password
+        }, function(err, user){
+            if(err) throw err;
+            if(user.length === 1){  
+                return res.status(200).json({
+                    status: 'berhasil',
+                    data: user
+                })
+            } else {
+                return res.status(200).json({
+                    status: 'gagal',
+                    message: 'login gagal'
+                })
+            }
+            console.log('hello')
+        })
     });
 })
 
